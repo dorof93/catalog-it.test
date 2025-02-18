@@ -10,7 +10,7 @@
 			$this->title = 'Ошибка 404';
 			return $this->render('common/404', [
 				'text' => 'Страница не найдена',
-				'h1' => $this->title
+				'title' => $this->title
 			]);
 		}
 		

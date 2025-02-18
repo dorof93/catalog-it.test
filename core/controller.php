@@ -11,7 +11,7 @@
                 'common/dev', 
                 [
                     'text' => 'Скоро будет готово',
-                    'h1' => $this->title
+                    'title' => $this->title
                 ]
             );
         }

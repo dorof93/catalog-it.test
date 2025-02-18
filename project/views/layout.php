@@ -7,6 +7,7 @@
         <meta name="description" content="Каталог сайтов IT-тематики">
         <link rel="icon" href="/favicon.ico">
         <link href="/project/assets/style.css?v=<?php echo filemtime($_SERVER['DOCUMENT_ROOT'] . '/project/assets/style.css') ?>" rel="stylesheet">
+        <script src="/project/assets/script.js?v=<?php echo filemtime($_SERVER['DOCUMENT_ROOT'] . '/project/assets/script.js') ?>"></script>
     </head>
     <body>
         <header class="section section_top">
