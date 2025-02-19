@@ -217,6 +217,29 @@ body {
     outline: 0;
     margin: 0px 0px 10px 0px;
   }
+  .form__success {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #484;
+    position: relative;
+    display: none;
+    grid-template-columns: 20px 1fr 50px;
+    grid-template-rows: auto;
+    margin-bottom: 2px;
+  }
+  .form__success_active {
+    display: grid;
+  }
+  .form__success-marker {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    font-size: 11px;
+    line-height: 14px;
+    border: 1px solid;
+    text-align: center;
+  }
   .form__error {
     font-weight: 400;
     font-size: 12px;

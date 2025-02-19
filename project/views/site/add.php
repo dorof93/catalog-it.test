@@ -15,6 +15,17 @@
                 </div>
                 <?php unset($_SESSION['errors']); ?>
             <?php } ?>
+            <?php if ( ! empty($_SESSION['success']) ) { ?>
+                <div class="form__field form__field_full form__backend-success">
+                    <?php foreach ($_SESSION['success'] as $success) { ?>
+                        <div class="form__success form__success_active">
+                            <div class="form__success-marker">!</div>
+                            <div class="form__success-text"><?php echo $success ?></div>
+                        </div>
+                    <?php } ?> 
+                </div>
+                <?php unset($_SESSION['success']); ?>
+            <?php } ?>
             <div class="form__field">
                 <label class="form__label">Название сайта</label>
                 <input onchange="checkInput(this)" required minlength="3" class="form__input" name="name" placeholder="Сайт об IT">

@@ -99,6 +99,11 @@
 			}
 			if ( $this->validate_add_form($args) ) {
 				$insert = (new Site) -> add($args);
+				if ($insert) {
+					$_SESSION['success'][] = 'Сайт был успешно добавлен в каталог';
+				} else {
+					$_SESSION['errors'][] = 'Ошибка БД. Попробуйте позднее';
+				}
 			}
 			header('location: /add_site/');
 			die();
