@@ -11,11 +11,11 @@
     </head>
     <body>
         <header class="section section_top">
-		    <div class="section__container">
+		    <div class="section__container section__header">
 			    <div class="header">
                     <div class="logo header__logo">
                         <a href="/" class="logo__link">
-                            <img src="/project/assets/logo.png" alt="Logo" class="logo__img">
+                            <img src="/project/assets/images/logo.png" alt="Logo" class="logo__img">
                         </a>
                     </div>
                     <div class="header__buttons">
@@ -28,7 +28,7 @@
             <?php echo $content; ?>
         </main>
         <footer class="section">
-            <div class="section__container">
+            <div class="section__container section__footer">
                 <div class="footer">
                     (c) Oleg Dorofeev 2025
                 </div>

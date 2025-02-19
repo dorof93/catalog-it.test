@@ -11,7 +11,7 @@
 
 		public function get_by_cat( $id )
 		{
-			return $this->findOne("SELECT * FROM sites WHERE cat_id=:id", ['id' => $id]);
+			return $this->findMany("SELECT * FROM sites WHERE cat_id=:id", ['id' => $id]);
 		}
 		
 		public function get_all()

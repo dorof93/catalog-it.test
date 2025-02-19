@@ -155,29 +155,41 @@ body {
     margin: 0;
     font-family: 'Manrope';
   } 
+  .section__title {
+    margin: 20px 0px;
+  } 
   .section__container {
       max-width: 1290px;
       padding: 0px 15px;
-      margin: 0 auto;
+      margin: 20px auto;
+  }
+  .section_top {
+    background: #252f3e;
+  }
+  .section__header {
+      margin: 0px auto 40px;
+      padding: 10px 15px;
+  }
+  .section__footer {
+      margin: 80px auto 40px;
   }
   .header {
-    border-bottom: 1px solid #CCCCCC;
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    margin: 20px 0px;
-    padding-bottom: 20px;
   }
   .header__buttons {
     text-align: right;
+  }
+  .logo__img {
+    max-height: 100px;
   }
 .form {
     display: grid;
     grid-template-rows: auto auto auto auto auto;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px 2vw;
-    padding-top: 45px;
   }
   .form__field {
     position: relative;
@@ -308,6 +320,135 @@ body {
   .form__button {
     grid-column: span 2;
   }
-  .footer {
-    margin: 20px 0px;
+  .form__select {
+
   }
+
+  .form__select { 
+    display: block; 
+    font-size: 16px; 
+    font-family: 'Inter'; 
+    /*! font-weight: 700; */ 
+    color: #555; 
+    line-height: 1.3; 
+    padding: 15px;
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box; 
+    margin: 0; 
+    border: 1px solid #ccc;
+     /*! box-shadow: 0 1px 0 1px rgba(0,0,0,.04); */ 
+    border-radius: 12px;
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     appearance: none;
+     background-color: #fff; 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); 
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%; 
+    } 
+     .form__select option {
+        font-weight:normal;
+    } 
+     *[dir="rtl"] .form__select, :root:lang(ar) .form__select, :root:lang(iw) .form__select { 
+    background-position: left .7em top 50%, 0 0; 
+    padding: .6em .8em .5em 1.4em; 
+    }
+  
+.list {
+    list-style: none;
+    padding: 0;
+}
+.list__item {
+    padding-left: 18px;
+    padding-bottom: 8px;
+    background-image: url('/project/assets/images/Frame\ 47.svg');
+    background-repeat: no-repeat;
+    background-position: 0px -2px;
+    background-size: 16px;
+}
+.list__item_cat-marker {
+    background-size: 24px;
+    padding: 15px 30px;
+    background-position: 0px 12px;
+}
+
+.site {
+    display: grid;
+    grid-template-areas: 
+     "post_img post_title post_title"
+     "post_img post_prev_text post_prev_text"
+     "post_img post_domain post_ratings";
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-columns: 20% 1fr 20%;
+    grid-gap: 20px 0px;
+    border: 1px solid #CCCCCC;
+    margin: 20px 0px;
+ }
+ .site__link {
+
+ }
+ .site__screen {
+     grid-area: post_img;
+     height: 200px;
+ }
+ .site__link_img {
+     position: relative;
+     height: 100%;
+     width: 100%;
+     overflow: hidden;
+     display: block;
+ }
+ .site__img {
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     max-width: none;
+     height: 100%;
+     width: auto;
+ }
+ .site__name {
+     grid-area: post_title;
+     font-size: 24px;
+     line-height: 28px;
+     font-weight: 700;
+     padding: 20px;
+ }
+ .site__description {
+     grid-area: post_prev_text;
+     color: #888;
+     padding: 0px 20px;
+ }
+ .site__domain {
+     grid-area: post_domain;
+     font-style: italic;
+     padding: 0px 0px 0px 20px;
+    align-self: center;
+ }
+.footer {
+}
+@media (max-width: 767px) {
+    .site {
+       grid-template-areas: 
+        "post_img post_img"
+        "post_title post_title"
+        "post_prev_text post_prev_text"
+        "post_domain post_ratings";
+       grid-template-rows: 150px auto auto 70px;
+       grid-template-columns: 1fr 20%;
+    }
+    .site__screen {
+        height: auto;
+    }
+    .form {
+      display: block;
+    }
+    .form__field {
+      margin-bottom: 15px;
+    }
+    .form__agree {
+      margin-bottom: 15px;
+    }
+}

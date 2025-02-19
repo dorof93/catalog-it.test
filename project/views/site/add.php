@@ -1,6 +1,6 @@
 <div class="section">
 	<div class="section__container">
-		<h1 class="title">
+		<h1 class="title section__title">
 			<?php echo $title; ?>
 		</h1>
         <form class="form" method="POST" action="/add_form_handler/" enctype="multipart/form-data">
@@ -37,9 +37,9 @@
                 <label class="form__label">Скрин главной страницы</label>
                 <input class="form__input" name="screenfile[]" type="file">
             </div>
-            <div class="form__field form__select">
+            <div class="form__field">
                 <label class="form__label">Категория</label>
-                <select name="cat_id">
+                <select class="form__select" name="cat_id">
                     <?php foreach ($cats as $cat) { ?>
                         <option value="<?php echo $cat['id'] ?>">
                             <?php echo $cat['name'] ?>

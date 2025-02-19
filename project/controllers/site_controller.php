@@ -11,13 +11,15 @@
 			$category = (new Category) -> get_by_id($params['id']);
 			$sites = (new Site) -> get_by_cat($params['id']);
 			
-            if ( ! $category ) {
+            if ( ! $category || ! $sites ) {
                 return $this->render_dev();
             }
 			$this->title = $category['name'];
 
 			return $this->render('site/category', [
 				'title' => $this->title,
+				'sites' => $sites,
+				'category' => $category,
 			]);
 		}
 		

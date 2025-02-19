@@ -8,10 +8,11 @@
 		public function index()
 		{
 			
-			$this->title = 'Главная страница';
-			$categories = (new Category) -> get_all();
+			$this->title = 'Каталог сайтов IT-тематики';
+			$cats = (new Category) -> get_all();
 			return $this->render('main/main', [
 				'title' => $this->title,
+				'cats' => $cats,
 			]);
 		}
 		
