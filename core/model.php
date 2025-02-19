@@ -28,4 +28,10 @@
             $row = $res->fetchAll();
             return $row;
 		}
+		
+		protected function insert($query, $args = [])
+		{
+			$res = self::$pdo->prepare($query);
+            return $res->execute($args);
+		}
 	}

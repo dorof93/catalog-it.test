@@ -45,12 +45,55 @@
 			]);
 		}
 		
-		public function add()
+		public function form()
 		{
 			$this->title = 'Добавить сайт в каталог';
+			$cats = (new Category) -> get_all();
 			
 			return $this->render('site/add', [
 				'title' => $this->title,
+				'cats' => $cats,
 			]);
+		}
+		
+		public function add()
+		{
+			$args = [
+				'name'        => $_POST['name'],
+				'domain'      => $_POST['domain'],
+				'description' => $_POST['description'],
+				'screen'      => '',
+				'cat_id'      => intval( $_POST['cat_id'] ),
+			];
+
+			if (!empty($_FILES['screenfile']['name'][0])) {
+				$uploaddir = '/project/uploads/';
+				$pathinfo = pathinfo($_FILES['screenfile']['name'][0]);
+				$uploadfile_ext = strtolower($pathinfo['extension']);
+				switch ($uploadfile_ext) {
+					case 'jpg':
+					case 'jpeg':
+					case 'gif':
+					case 'png':
+						$format = '.' . $uploadfile_ext;
+					break;
+					default:
+						$format = '';
+					break;
+				}
+				if (!empty($format)) {
+					$new_filename = str_replace('.', '_', $args['domain']);
+					$new_filename = preg_replace('|[^a-z0-9_-]|', '', $new_filename);
+					$new_filename = $new_filename . $format;
+					$file_path = $uploaddir . $new_filename;
+					$server_file_path = $_SERVER['DOCUMENT_ROOT'] . $uploaddir . $new_filename;
+					if (is_uploaded_file($_FILES['screenfile']['tmp_name'][0]) && move_uploaded_file($_FILES['screenfile']['tmp_name'][0], $server_file_path)) {
+						$args['screen'] = $file_path;
+					}
+				}
+			}
+			$insert = (new Site) -> add($args);
+			header('location: /add_site/');
+			die();
 		}
 	}
