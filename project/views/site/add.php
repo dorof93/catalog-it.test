@@ -4,6 +4,17 @@
 			<?php echo $title; ?>
 		</h1>
         <form class="form" method="POST" action="/add_form_handler/" enctype="multipart/form-data">
+            <?php if ( ! empty($_SESSION['errors']) ) { ?>
+                <div class="form__field form__field_full form__backend-errors">
+                    <?php foreach ($_SESSION['errors'] as $error) { ?>
+                        <div class="form__error form__error_active">
+                            <div class="form__error-marker">!</div>
+                            <div class="form__error-text"><?php echo $error ?></div>
+                        </div>
+                    <?php } ?> 
+                </div>
+                <?php unset($_SESSION['errors']); ?>
+            <?php } ?>
             <div class="form__field">
                 <label class="form__label">Название сайта</label>
                 <input onchange="checkInput(this)" required minlength="3" class="form__input" name="name" placeholder="Сайт об IT">
@@ -15,7 +26,7 @@
             </div>
             <div class="form__field">
                 <label class="form__label">Домен</label>
-                <input onchange="checkInput(this)" required class="form__input" name="domain" data-validate="link" placeholder="https://site.com/">
+                <input onchange="checkInput(this)" required minlength="3" class="form__input" name="domain" data-validate="link" placeholder="https://site.com/">
                 <div class="form__error">
                     <div class="form__error-marker">!</div>
                     <div class="form__error-text">Пожалуйста, введите корректный домен</div>

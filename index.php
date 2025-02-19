@@ -1,5 +1,6 @@
 <?php
 namespace Core;
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 spl_autoload_register();
